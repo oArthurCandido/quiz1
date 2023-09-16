@@ -3,7 +3,13 @@ import CN from "classnames";
 
 interface ButtonProps {
   title?: string;
-  color?: "attention" | "primary" | "tertiary" | "basic" | undefined;
+  color?:
+    | "attention"
+    | "primary"
+    | "tertiary"
+    | "basic"
+    | "secondary"
+    | undefined;
   onClick?: () => void;
   children?: React.ReactNode;
 }
@@ -24,6 +30,7 @@ const Button: React.FC<ButtonProps> = ({
           "bg-green-600": color === "primary",
           "bg-yellow-500": color === "tertiary",
           "bg-slate-500": color === "basic",
+          "bg-blue-500": color === "secondary",
         }
       )}
     >

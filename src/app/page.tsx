@@ -92,21 +92,24 @@ export default function Home() {
               color="primary"
               title="Formação profssional em computação"
             />
-            {/* <Button
+            <Button
               key={"sc"}
               onClick={() => setTheme("sc")}
-              color="tertiary"
+              color="secondary"
               title="Sistemas computacionais"
-            /> */}
+            />
           </div>
         )}
       </section>
       <section id="game-box">
         {shuffledQuestions.length > 0 && !isRight && !isWrong && (
           <div className="border rounded-md p-1 mt-2">
-            <p className="sm:text-xl font-bold ">
-              {shuffledQuestions[0].pergunta}
-            </p>
+            {shuffledQuestions[0].pergunta.split("\n").map((item) => (
+              <p key={item} className="sm:text-xl font-bold ">
+                {item}
+              </p>
+            ))}
+
             <div className="my-1 border rounded-md p-1">
               {shuffledQuestions[0].respostas.map((item, index) => (
                 <Button
